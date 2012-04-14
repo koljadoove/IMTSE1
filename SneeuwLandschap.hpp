@@ -2,7 +2,7 @@
  * SneeuwLandschap.hpp
  *
  *  Created on: 8 feb. 2012
- *      Author: acer
+ *      Author: Kolja Doove
  */
 
 #ifndef SNEEUWLANDSCHAP_HPP_

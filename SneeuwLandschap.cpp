@@ -2,11 +2,11 @@
  * SneeuwLandschap.cpp
  *
  *  Created on: 8 feb. 2012
- *      Author: acer
+ *      Author: Kolja Doove
  */
 
 #include "SneeuwLandschap.hpp"
-
+#include <mastdlib.h>
 
 //globale variabelen voor breedte en hoogte van het scherm
 int screenWidth;
@@ -20,6 +20,8 @@ SneeuwLandschap::SneeuwLandschap()
 	MAExtent screenSize = maGetScrSize();
 	screenWidth = EXTENT_X( screenSize );
 	screenHeight = EXTENT_Y( screenSize );
+
+
 
 	//stel sneeuwhoogte in (vanaf bodem)
 	this->sneeuwHoogte = 30;
@@ -49,8 +51,19 @@ void SneeuwLandschap::run( MAEvent event )
 
 
 	//TODO: voeg een sneeuwvlok toe
+	for(int i= 0; i<3; i++)
+	{
+		SneeuwVlok* sneeuwVlok = new SneeuwVlok((rand()%screenWidth),0);
+		this->sneeuwVlokArray.add(sneeuwVlok);
+	}
+
 
 	//TODO: laat alle sneeuwvlokken vallen
+
+	for(int i = 0; i <this->sneeuwVlokArray.size();i++)
+		{
+			sneeuwVlokArray[i]->fall(screenHeight -32);
+		}
 }
 
 
@@ -66,8 +79,19 @@ void SneeuwLandschap::draw()
 	maFillRect( 0, screenHeight - this->sneeuwHoogte, screenWidth, this->sneeuwHoogte );
 
 	//TODO: teken de sneeuwman
+	sneeuwMan->draw();
 
 	//TODO: teken alle sneeuwvlokken
+	for(int i = 0; i <this->sneeuwVlokArray.size();i++)
+		{
+			this->sneeuwVlokArray[i]->draw();
+
+			if(this->sneeuwVlokArray[i]->isDead())
+			{
+				delete sneeuwVlokArray[i];
+				sneeuwVlokArray.remove(i);
+			}
+		}
 }
 
 

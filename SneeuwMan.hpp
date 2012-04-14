@@ -2,7 +2,7 @@
  * SneeuwMan.hpp
  *
  *  Created on: 8 feb. 2012
- *      Author: acer
+ *      Author: Kolja Doove
  */
 
 #ifndef SNEEUWMAN_HPP_
@@ -23,6 +23,7 @@ private:
 public:
 	//constructor
 	SneeuwMan( int positionX, int positionY );
+//	virtual ~SneeuwMan();
 
 	//beweeg de sneeuwman in de richting "direcion", negatief getal is links, positief is rechts
 	void move( int direction );

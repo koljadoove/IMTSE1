@@ -14,14 +14,20 @@ extern "C" int MAMain()
 	//nieuw sneeuwlandschap
 	SneeuwLandschap* sneeuwLandschap = new SneeuwLandschap();
 
+	//SneeuwMan* sneeuwMan = new SneeuwMan(screenWidth / 2, screenHeight - this->sneeuwHoogte);
+
+
+
 	//oneindige loop laat onze app in werking
 	while (TRUE)
 	{
 		//run met 1 frame per 100 ms
-		maWait(100);
+		maWait(10);
 
 		//kijk of er events hebben plaatsgevonden, sla die info op in MAEvent event.
 		maGetEvent(&event);
+
+
 
 		//als een event de app wil sluiten...
 		if (EVENT_TYPE_CLOSE == event.type)
@@ -35,6 +41,7 @@ extern "C" int MAMain()
 
 		//teken het sneeuwlandschap
 		sneeuwLandschap->draw();
+
 
 		//vergeet het scherm niet te updaten!
 		maUpdateScreen();
